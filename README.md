@@ -1,5 +1,5 @@
-gnome-wii
-=========
+gnome-wmii
+==========
 
 Simple script to allow focusing and moving gnome windows in a similar way to wmii.
 
