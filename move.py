@@ -39,8 +39,36 @@ monitor_windows = {}
 
 number_monitors = gdk_display.get_n_monitors()
 
+def compare(monitor1, monitor2):
+    if monitor1.get_geometry().x < monitor2.get_geometry().x:
+        return -1
+    elif monitor1.get_geometry().x > monitor2.get_geometry().x:
+        return 1
+    else:
+        return 0
+
+monitors = []
+
 for number in range(number_monitors):
-    if gdk_monitor == gdk_display.get_monitor(number):
+    monitors.append(gdk_display.get_monitor(number))
+
+sorted_monitors = sorted(monitors, cmp=compare)
+
+monitor_map = []
+
+for monitor in monitors:
+    for index in range(0, len(sorted_monitors)):
+        if monitor == sorted_monitors[index]:
+            monitor_map.append(index)
+            break
+
+def get_monitor(monitor):
+    for index in range(0, len(monitor_map)):
+        if monitor == monitor_map[index]:
+            return index
+
+for number in range(number_monitors):
+    if gdk_monitor == sorted_monitors[number]:
         monitor = number
 
 for number in range(number_monitors):
@@ -64,7 +92,7 @@ if direction == 'left':
     new_monitor = monitor - 1
 
     if new_monitor >= 0:
-        windows = monitor_windows[new_monitor]
+        windows = monitor_windows[get_monitor(new_monitor)]
 
         if len(windows) > 0:
             Wnck.Window.get(windows[0].get_xid()).activate(now)
@@ -73,13 +101,13 @@ if direction == 'right':
     new_monitor = monitor + 1
 
     if new_monitor < number_monitors:
-        windows = monitor_windows[new_monitor]
+        windows = monitor_windows[get_monitor(new_monitor)]
 
         if len(windows) > 0:
             Wnck.Window.get(windows[0].get_xid()).activate(now)
 
 if direction == 'up':
-    windows = sorted(monitor_windows[monitor])
+    windows = sorted(monitor_windows[get_monitor(monitor)])
 
     for number, window in enumerate(windows):
         if active_window.get_xid() == window.get_xid():
@@ -93,7 +121,7 @@ if direction == 'up':
     Wnck.Window.get(windows[window_index].get_xid()).activate(now)
 
 if direction == 'down':
-    windows = sorted(monitor_windows[monitor])
+    windows = sorted(monitor_windows[get_monitor(monitor)])
 
     for number, window in enumerate(windows):
         if active_window.get_xid() == window.get_xid():

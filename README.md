@@ -19,7 +19,11 @@ Key bindings:
 | move window to left monitor  | '\<Shift\>\<Super\>h' |
 | move window to right monitor | '\<Shift\>\<Super\>l' |
 | maximize window              | '\<Shift\>\<Super\>k' |
+| unmaximize window            | '\<Shift\>\<Super\>j' |
 | move focus left              | '\<Super\>h'          |
 | move focus right             | '\<Super\>l'          |
 | move focus up                | '\<Super\>k'          |
 | move focus down              | '\<Super\>j'          |
+| open terminal                | '\<Super\>return'     |
+| close terminal               | '\<Shift\>\<Super\>c' |
+| open rofi menu               | '\<Super\>space'      |
