@@ -6,6 +6,10 @@ Simple script to allow focusing and moving gnome windows in a similar way to wmi
 Install
 -------
 
+Install system dependencies:
+
+    sudo apt-get install python-gi
+
 Clone the github project and run the setup script:
 
     git clone https://github.com/nonameentername/gnome-wmii.git
