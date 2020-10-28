@@ -10,6 +10,9 @@ from gi.repository import GdkX11
 from gi.repository import Gtk
 from gi.repository import Wnck
 
+from functools import cmp_to_key
+
+
 # Get screen - this must come before gtk loop
 screen = Wnck.Screen.get_default()
 gtk_screen = Gdk.Screen.get_default()
@@ -52,7 +55,7 @@ monitors = []
 for number in range(number_monitors):
     monitors.append(gdk_display.get_monitor(number))
 
-sorted_monitors = sorted(monitors, cmp=compare)
+sorted_monitors = sorted(monitors, key=cmp_to_key(compare))
 
 monitor_map = []
 
