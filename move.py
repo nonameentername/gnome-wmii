@@ -23,9 +23,11 @@ while Gtk.events_pending():
 
 # Get windows list and filter for normal windows
 windows = screen.get_windows_stacked()
+active_workspace = screen.get_active_workspace()
 filtered_windows = [
     window for window in windows
-    if window.get_window_type() == Wnck.WindowType.__enum_values__[0]]
+    if window.get_window_type() == Wnck.WindowType.__enum_values__[0] 
+    and window.is_visible_on_workspace(active_workspace)]
 filtered_windows.reverse()
 
 active_window = Wnck.Screen.get_default().get_active_window()

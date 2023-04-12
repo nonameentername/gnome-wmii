@@ -7,6 +7,12 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Shift><
 gsettings set org.gnome.desktop.wm.keybindings maximize "['<Shift><Super>k', '<Super>Up', '<Primary><Alt>KP_5']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "[]"
 gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Shift><Super>j', '<Super>Down']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Shift><Super>p']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Shift><Super>n']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Super>p']"
+gsettings set org.gnome.shell.keybindings focus-active-notification "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Super>n']"
+
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Shift><Super>c']"
